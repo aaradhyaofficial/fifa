@@ -1,0 +1,13 @@
+{
+  "name": "fifa-smart-venue",
+  "version": "1.0.0",
+  "description": "FIFA World Cup 2026 Smart Venue & Fan Assist Dashboard",
+  "main": "app.js",
+  "scripts": {
+    "start": "serve -p 8080",
+    "dev": "serve -p 8080"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}

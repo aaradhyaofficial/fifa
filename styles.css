@@ -1,5 +1,5 @@
 /* FIFA World Cup 2026 - Smart Venue Dashboard Styles */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
 
 :root {
   --bg-dark: #07090e;
@@ -7,7 +7,7 @@
   --bg-glass: rgba(15, 23, 42, 0.65);
   --border-light: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(255, 255, 255, 0.15);
-  
+
   /* Primary Colors */
   --primary-glow: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
   --accent-green: #00f5a0;
@@ -15,7 +15,7 @@
   --accent-cyan: #00e5ff;
   --accent-purple: #a855f7;
   --accent-purple-glow: rgba(168, 85, 247, 0.15);
-  
+
   /* Severity Colors */
   --severity-high: #ff4b5c;
   --severity-high-glow: rgba(255, 75, 92, 0.2);
@@ -23,15 +23,15 @@
   --severity-med-glow: rgba(255, 170, 0, 0.15);
   --severity-low: #3b82f6;
   --severity-low-glow: rgba(59, 130, 246, 0.15);
-  
+
   /* Text */
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
-  
+
   /* Fonts */
-  --font-title: 'Outfit', sans-serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-title: "Outfit", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
 }
 
 * {
@@ -42,7 +42,7 @@
 
 body {
   background-color: var(--bg-dark);
-  background-image: 
+  background-image:
     radial-gradient(at 0% 0%, rgba(15, 23, 42, 0.9) 0px, transparent 50%),
     radial-gradient(at 50% 0%, rgba(79, 172, 254, 0.08) 0px, transparent 50%),
     radial-gradient(at 100% 0%, rgba(0, 245, 160, 0.05) 0px, transparent 50%);
@@ -81,7 +81,9 @@ body {
   display: flex;
   flex-direction: column;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .glass-panel:hover {
@@ -118,7 +120,7 @@ body {
 }
 
 .phone-notch::before {
-  content: '';
+  content: "";
   width: 40px;
   height: 4px;
   background: #111;
@@ -549,7 +551,7 @@ body {
 }
 
 .live-indicator::before {
-  content: '';
+  content: "";
   width: 8px;
   height: 8px;
   background: var(--accent-green);
@@ -700,9 +702,15 @@ body {
   border-radius: 50%;
 }
 
-.legend-color.low { background: var(--accent-green); }
-.legend-color.medium { background: var(--severity-med); }
-.legend-color.high { background: var(--severity-high); }
+.legend-color.low {
+  background: var(--accent-green);
+}
+.legend-color.medium {
+  background: var(--severity-med);
+}
+.legend-color.high {
+  background: var(--severity-high);
+}
 .legend-color.critical {
   background: #ff0055;
   animation: pulse-red 1.2s infinite;
@@ -767,9 +775,15 @@ body {
 }
 
 /* Crowd Level Colors */
-.stadium-node.crowd-low { border-left: 3px solid var(--accent-green); }
-.stadium-node.crowd-medium { border-left: 3px solid var(--severity-med); }
-.stadium-node.crowd-high { border-left: 3px solid var(--severity-high); }
+.stadium-node.crowd-low {
+  border-left: 3px solid var(--accent-green);
+}
+.stadium-node.crowd-medium {
+  border-left: 3px solid var(--severity-med);
+}
+.stadium-node.crowd-high {
+  border-left: 3px solid var(--severity-high);
+}
 .stadium-node.crowd-critical {
   border-left: 3px solid #ff0055;
   background: rgba(255, 0, 85, 0.04);
@@ -790,7 +804,11 @@ body {
 
 /* GenAI Command Console Box */
 .genai-console {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.04) 0%, rgba(79, 172, 254, 0.04) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 0.04) 0%,
+    rgba(79, 172, 254, 0.04) 100%
+  );
   border: 1px solid rgba(168, 85, 247, 0.25);
   border-radius: 16px;
   padding: 18px;
@@ -881,7 +899,9 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  transition: opacity 0.2s, transform 0.2s;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
 }
 
 .console-btn:hover {
@@ -1017,26 +1037,59 @@ body {
 
 /* Animations */
 @keyframes pulse-green {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 245, 160, 0.4); }
-  70% { transform: scale(1.05); box-shadow: 0 0 0 6px rgba(0, 245, 160, 0); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 245, 160, 0); }
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 245, 160, 0.4);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 6px rgba(0, 245, 160, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 245, 160, 0);
+  }
 }
 
 @keyframes pulse-red {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 75, 92, 0.6); }
-  70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(255, 75, 92, 0); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 75, 92, 0); }
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 75, 92, 0.6);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(255, 75, 92, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 75, 92, 0);
+  }
 }
 
 @keyframes border-pulse-critical {
-  0% { border-color: #ff0055; box-shadow: 0 0 0 0 rgba(255, 0, 85, 0.2); }
-  50% { border-color: #ff4b5c; box-shadow: 0 0 10px rgba(255, 0, 85, 0.4); }
-  100% { border-color: #ff0055; box-shadow: 0 0 0 0 rgba(255, 0, 85, 0.2); }
+  0% {
+    border-color: #ff0055;
+    box-shadow: 0 0 0 0 rgba(255, 0, 85, 0.2);
+  }
+  50% {
+    border-color: #ff4b5c;
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.4);
+  }
+  100% {
+    border-color: #ff0055;
+    box-shadow: 0 0 0 0 rgba(255, 0, 85, 0.2);
+  }
 }
 
 @keyframes sparkle-glow {
-  0% { opacity: 0.6; filter: drop-shadow(0 0 1px rgba(168, 85, 247, 0.2)); }
-  100% { opacity: 1; filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.8)); }
+  0% {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 1px rgba(168, 85, 247, 0.2));
+  }
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.8));
+  }
 }
 
 /* Scrollbar Customization */

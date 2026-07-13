@@ -1,203 +1,338 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:;">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <title>FIFA World Cup 2026 - Smart Venue &amp; Fan Assist Dashboard</title>
-  <meta name="description" content="GenAI-enabled smart stadium operations and fan experience platform for FIFA World Cup 2026.">
-  <link rel="stylesheet" href="styles.css" referrerpolicy="no-referrer">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:;"
+    />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <title>FIFA World Cup 2026 - Smart Venue &amp; Fan Assist Dashboard</title>
+    <meta
+      name="description"
+      content="GenAI-enabled smart stadium operations and fan experience platform for FIFA World Cup 2026."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏆</text></svg>"
+    />
+    <link rel="stylesheet" href="styles.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <div class="dashboard-wrapper" role="main">
+      <!-- PANEL 1: FAN INTENSITY INTERFACE (WhatsApp Chat Bot Emulator) -->
+      <div class="phone-emulator" aria-label="Fan Chat Assistant">
+        <div class="phone-notch"></div>
+        <div class="phone-content">
+          <!-- Chat Header -->
+          <div class="chat-header">
+            <div class="bot-avatar" aria-hidden="true">🤖</div>
+            <div class="header-info">
+              <h3>FIFA 2026 Assist</h3>
+              <div class="header-status">
+                <span class="status-dot" aria-hidden="true"></span>
+                Online • Multilingual
+              </div>
+            </div>
+          </div>
 
-  <div class="dashboard-wrapper" role="main">
-    
-    <!-- PANEL 1: FAN INTENSITY INTERFACE (WhatsApp Chat Bot Emulator) -->
-    <div class="phone-emulator" aria-label="Fan Chat Assistant">
-      <div class="phone-notch"></div>
-      <div class="phone-content">
-        <!-- Chat Header -->
-        <div class="chat-header">
-          <div class="bot-avatar" aria-hidden="true">🤖</div>
-          <div class="header-info">
-            <h3>FIFA 2026 Assist</h3>
-            <div class="header-status">
-              <span class="status-dot" aria-hidden="true"></span>
-              Online • Multilingual
+          <!-- Chat Feed Area -->
+          <div
+            class="chat-feed"
+            id="chat-feed"
+            role="log"
+            aria-live="polite"
+            aria-label="Chat messages"
+          >
+            <div class="message bot">
+              Hello! I am your FIFA World Cup 2026 Stadium Assistant. Ask me
+              about navigation, restrooms, food concessions, or report any
+              issues in your section.
+              <span class="time">20:45</span>
+            </div>
+          </div>
+
+          <!-- Preset Prompts for Testing -->
+          <div class="preset-section">
+            <div class="preset-title">Test Scenarios (Click to Send)</div>
+            <div
+              class="presets-container"
+              id="fan-presets"
+              role="group"
+              aria-label="Preset fan messages"
+            >
+              <!-- Preset chips injected dynamically -->
+            </div>
+          </div>
+
+          <!-- Input Row -->
+          <div class="chat-input-area">
+            <input
+              type="text"
+              class="chat-input"
+              id="chat-input"
+              placeholder="Type message in your language..."
+              autocomplete="off"
+              maxlength="500"
+              aria-label="Type your message"
+            />
+            <button
+              class="chat-send-btn"
+              id="chat-send-btn"
+              aria-label="Send message"
+            >
+              🚀
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL 2: VOLUNTEER EXECUTION MODULE (Crew Portal Emulator) -->
+      <div class="phone-emulator" aria-label="Volunteer Crew Portal">
+        <div class="phone-notch"></div>
+        <div class="phone-content">
+          <!-- Volunteer Header -->
+          <div class="volunteer-header">
+            <div class="volunteer-user">
+              <div class="vol-avatar" id="vol-avatar" aria-hidden="true">
+                SJ
+              </div>
+              <div class="vol-info">
+                <h4 id="vol-name">Sarah Jenkins</h4>
+                <p id="vol-loc">Zone: Sec 102</p>
+              </div>
+            </div>
+            <span
+              class="vol-status-badge available"
+              id="vol-status"
+              role="status"
+              >Available</span
+            >
+          </div>
+
+          <!-- Volunteer Selector (for testing different volunteers) -->
+          <div
+            class="preset-section"
+            style="border-top: none; background: rgba(15, 23, 42, 0.2)"
+          >
+            <div class="preset-title">Switch Crew View</div>
+            <div
+              class="presets-container"
+              id="volunteer-selector"
+              role="group"
+              aria-label="Select volunteer crew member"
+            >
+              <!-- Inject volunteer switches -->
+            </div>
+          </div>
+
+          <!-- Volunteer Task List -->
+          <div
+            class="volunteer-tasks"
+            id="volunteer-tasks"
+            aria-label="Assigned tasks"
+          >
+            <div
+              class="task-card"
+              style="
+                border: 1px dashed var(--border-light);
+                text-align: center;
+                color: var(--text-muted);
+                justify-content: center;
+                height: 120px;
+              "
+            >
+              No active incidents assigned near you. Ready for dispatch!
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Chat Feed Area -->
-        <div class="chat-feed" id="chat-feed" role="log" aria-live="polite" aria-label="Chat messages">
-          <div class="message bot">
-            Hello! I am your FIFA World Cup 2026 Stadium Assistant. Ask me about navigation, restrooms, food concessions, or report any issues in your section.
-            <span class="time">20:45</span>
+      <!-- PANEL 3: ORGANIZER MASTER COMMAND CENTER -->
+      <div
+        class="glass-panel organizer-panel"
+        aria-label="Organizer Command Center"
+      >
+        <!-- Organizer Header -->
+        <div class="org-header">
+          <div class="org-title">
+            <span class="org-logo" aria-hidden="true">🏆</span>
+            <div>
+              <h1>FIFA World Cup 2026</h1>
+              <p>Venue Command Console • MetLife Stadium Hub</p>
+            </div>
+          </div>
+          <div
+            class="live-indicator"
+            role="status"
+            aria-label="Live venue feeds active"
+          >
+            LIVE VENUE FEEDS
           </div>
         </div>
 
-        <!-- Preset Prompts for Testing -->
-        <div class="preset-section">
-          <div class="preset-title">Test Scenarios (Click to Send)</div>
-          <div class="presets-container" id="fan-presets" role="group" aria-label="Preset fan messages">
-            <!-- Preset chips injected dynamically -->
-          </div>
-        </div>
+        <!-- Main Organizer Content Grid -->
+        <div class="org-content-grid">
+          <!-- Left Column: Map & Commands -->
+          <div class="main-column">
+            <!-- Metrics Widgets -->
+            <div
+              class="metrics-row"
+              role="group"
+              aria-label="Key operational metrics"
+            >
+              <div class="metric-card" role="status">
+                <div
+                  class="metric-icon active-incidents"
+                  id="metric-incidents-icon"
+                  aria-hidden="true"
+                >
+                  🚨
+                </div>
+                <div class="metric-info">
+                  <h4>Active Incidents</h4>
+                  <p id="metric-active-incidents">0</p>
+                </div>
+              </div>
+              <div class="metric-card" role="status">
+                <div class="metric-icon volunteers" aria-hidden="true">👥</div>
+                <div class="metric-info">
+                  <h4>Crew Available</h4>
+                  <p id="metric-avail-volunteers">4 / 4</p>
+                </div>
+              </div>
+              <div class="metric-card" role="status">
+                <div class="metric-icon flow" aria-hidden="true">⚡</div>
+                <div class="metric-info">
+                  <h4>Gate Flow</h4>
+                  <p id="metric-gate-flow">Stable</p>
+                </div>
+              </div>
+              <div class="metric-card" role="status">
+                <div class="metric-icon" aria-hidden="true">⏰</div>
+                <div class="metric-info">
+                  <h4>Avg Resolution</h4>
+                  <p id="metric-resolution-time">4.2m</p>
+                </div>
+              </div>
+            </div>
 
-        <!-- Input Row -->
-        <div class="chat-input-area">
-          <input type="text" class="chat-input" id="chat-input" placeholder="Type message in your language..." autocomplete="off" maxlength="500" aria-label="Type your message">
-          <button class="chat-send-btn" id="chat-send-btn" aria-label="Send message">🚀</button>
+            <!-- Stadium Visualization Map Grid -->
+            <div class="stadium-map-container">
+              <div class="map-header">
+                <h3>Interactive Stadium Flow &amp; Section Monitor</h3>
+                <div class="map-legend" aria-label="Crowd density legend">
+                  <div class="legend-item">
+                    <span class="legend-color low" aria-hidden="true"></span>
+                    Low
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-color medium" aria-hidden="true"></span>
+                    Med
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-color high" aria-hidden="true"></span>
+                    High
+                  </div>
+                  <div class="legend-item">
+                    <span
+                      class="legend-color critical"
+                      aria-hidden="true"
+                    ></span>
+                    Critical
+                  </div>
+                </div>
+              </div>
+              <div
+                class="stadium-grid"
+                id="stadium-grid"
+                role="grid"
+                aria-label="Interactive stadium section grid"
+              >
+                <!-- Stadium grid structure injected dynamically -->
+              </div>
+            </div>
+
+            <!-- GenAI Command Console Box -->
+            <div class="genai-console">
+              <div class="console-header">
+                <div class="console-title">
+                  <span class="ai-sparkle" aria-hidden="true">✨</span> GenAI
+                  Assistant Command Node
+                </div>
+              </div>
+
+              <div class="console-suggested">
+                <div class="preset-title">
+                  Pre-set Organizer Intelligence Queries
+                </div>
+                <div
+                  class="presets-container"
+                  id="organizer-presets"
+                  role="group"
+                  aria-label="Preset organizer queries"
+                >
+                  <!-- Organizer queries injected dynamically -->
+                </div>
+              </div>
+
+              <div class="console-input-row">
+                <input
+                  type="text"
+                  class="console-input"
+                  id="console-input"
+                  placeholder="Query the stadium operations assistant... (e.g. Give me a 2-minute summary)"
+                  autocomplete="off"
+                  maxlength="500"
+                  aria-label="Organizer query input"
+                />
+                <button
+                  class="console-btn"
+                  id="console-btn"
+                  aria-label="Analyze query"
+                >
+                  <span aria-hidden="true">✨</span> Analyze
+                </button>
+              </div>
+
+              <div
+                class="console-output-box"
+                id="console-output"
+                role="region"
+                aria-live="polite"
+                aria-label="GenAI analysis output"
+              >
+                Ask a question above or select a query to synthesize stadium
+                status logs, volunteer positions, and crowd density indexes into
+                natural language operations advice.
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Incident Log and Triage Logs -->
+          <div class="side-column">
+            <div class="incident-log-panel">
+              <div class="panel-header">
+                <h3>Triage Dispatch &amp; Incident Logs</h3>
+              </div>
+              <div
+                class="incidents-list"
+                id="incidents-list"
+                role="log"
+                aria-live="polite"
+                aria-label="Incident log entries"
+              >
+                <!-- List of active and resolved incidents injected dynamically -->
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- PANEL 2: VOLUNTEER EXECUTION MODULE (Crew Portal Emulator) -->
-    <div class="phone-emulator" aria-label="Volunteer Crew Portal">
-      <div class="phone-notch"></div>
-      <div class="phone-content">
-        <!-- Volunteer Header -->
-        <div class="volunteer-header">
-          <div class="volunteer-user">
-            <div class="vol-avatar" id="vol-avatar" aria-hidden="true">SJ</div>
-            <div class="vol-info">
-              <h4 id="vol-name">Sarah Jenkins</h4>
-              <p id="vol-loc">Zone: Sec 102</p>
-            </div>
-          </div>
-          <span class="vol-status-badge available" id="vol-status" role="status">Available</span>
-        </div>
-
-        <!-- Volunteer Selector (for testing different volunteers) -->
-        <div class="preset-section" style="border-top: none; background: rgba(15, 23, 42, 0.2);">
-          <div class="preset-title">Switch Crew View</div>
-          <div class="presets-container" id="volunteer-selector" role="group" aria-label="Select volunteer crew member">
-            <!-- Inject volunteer switches -->
-          </div>
-        </div>
-
-        <!-- Volunteer Task List -->
-        <div class="volunteer-tasks" id="volunteer-tasks" aria-label="Assigned tasks">
-          <div class="task-card" style="border: 1px dashed var(--border-light); text-align: center; color: var(--text-muted); justify-content: center; height: 120px;">
-            No active incidents assigned near you. Ready for dispatch!
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PANEL 3: ORGANIZER MASTER COMMAND CENTER -->
-    <div class="glass-panel organizer-panel" aria-label="Organizer Command Center">
-      <!-- Organizer Header -->
-      <div class="org-header">
-        <div class="org-title">
-          <span class="org-logo" aria-hidden="true">🏆</span>
-          <div>
-            <h1>FIFA World Cup 2026</h1>
-            <p>Venue Command Console • MetLife Stadium Hub</p>
-          </div>
-        </div>
-        <div class="live-indicator" role="status" aria-label="Live venue feeds active">LIVE VENUE FEEDS</div>
-      </div>
-
-      <!-- Main Organizer Content Grid -->
-      <div class="org-content-grid">
-        
-        <!-- Left Column: Map & Commands -->
-        <div class="main-column">
-          <!-- Metrics Widgets -->
-          <div class="metrics-row" role="group" aria-label="Key operational metrics">
-            <div class="metric-card" role="status">
-              <div class="metric-icon active-incidents" id="metric-incidents-icon" aria-hidden="true">🚨</div>
-              <div class="metric-info">
-                <h4>Active Incidents</h4>
-                <p id="metric-active-incidents">0</p>
-              </div>
-            </div>
-            <div class="metric-card" role="status">
-              <div class="metric-icon volunteers" aria-hidden="true">👥</div>
-              <div class="metric-info">
-                <h4>Crew Available</h4>
-                <p id="metric-avail-volunteers">4 / 4</p>
-              </div>
-            </div>
-            <div class="metric-card" role="status">
-              <div class="metric-icon flow" aria-hidden="true">⚡</div>
-              <div class="metric-info">
-                <h4>Gate Flow</h4>
-                <p id="metric-gate-flow">Stable</p>
-              </div>
-            </div>
-            <div class="metric-card" role="status">
-              <div class="metric-icon" aria-hidden="true">⏰</div>
-              <div class="metric-info">
-                <h4>Avg Resolution</h4>
-                <p id="metric-resolution-time">4.2m</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Stadium Visualization Map Grid -->
-          <div class="stadium-map-container">
-            <div class="map-header">
-              <h3>Interactive Stadium Flow &amp; Section Monitor</h3>
-              <div class="map-legend" aria-label="Crowd density legend">
-                <div class="legend-item"><span class="legend-color low" aria-hidden="true"></span> Low</div>
-                <div class="legend-item"><span class="legend-color medium" aria-hidden="true"></span> Med</div>
-                <div class="legend-item"><span class="legend-color high" aria-hidden="true"></span> High</div>
-                <div class="legend-item"><span class="legend-color critical" aria-hidden="true"></span> Critical</div>
-              </div>
-            </div>
-            <div class="stadium-grid" id="stadium-grid" role="grid" aria-label="Interactive stadium section grid">
-              <!-- Stadium grid structure injected dynamically -->
-            </div>
-          </div>
-
-          <!-- GenAI Command Console Box -->
-          <div class="genai-console">
-            <div class="console-header">
-              <div class="console-title">
-                <span class="ai-sparkle" aria-hidden="true">✨</span> GenAI Assistant Command Node
-              </div>
-            </div>
-            
-            <div class="console-suggested">
-              <div class="preset-title">Pre-set Organizer Intelligence Queries</div>
-              <div class="presets-container" id="organizer-presets" role="group" aria-label="Preset organizer queries">
-                <!-- Organizer queries injected dynamically -->
-              </div>
-            </div>
-
-            <div class="console-input-row">
-              <input type="text" class="console-input" id="console-input" placeholder="Query the stadium operations assistant... (e.g. Give me a 2-minute summary)" autocomplete="off" maxlength="500" aria-label="Organizer query input">
-              <button class="console-btn" id="console-btn" aria-label="Analyze query"><span aria-hidden="true">✨</span> Analyze</button>
-            </div>
-
-            <div class="console-output-box" id="console-output" role="region" aria-live="polite" aria-label="GenAI analysis output">
-              Ask a question above or select a query to synthesize stadium status logs, volunteer positions, and crowd density indexes into natural language operations advice.
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Column: Incident Log and Triage Logs -->
-        <div class="side-column">
-          <div class="incident-log-panel">
-            <div class="panel-header">
-              <h3>Triage Dispatch &amp; Incident Logs</h3>
-            </div>
-            <div class="incidents-list" id="incidents-list" role="log" aria-live="polite" aria-label="Incident log entries">
-              <!-- List of active and resolved incidents injected dynamically -->
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Loading scripts -->
-  <script src="stadium_data.js"></script>
-  <script src="app.js"></script>
-</body>
+    <!-- Loading scripts -->
+    <script src="stadium_data.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
