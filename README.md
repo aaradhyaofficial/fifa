@@ -10,7 +10,7 @@ A GenAI-enabled smart stadium operations and fan experience platform mock-up des
 
 ## Prerequisites
 
-You need [Node.js](https://nodejs.org/) installed to run the local development server using `serve`.
+You need [Node.js](https://nodejs.org/) (v18 or later) installed to run the local development server.
 
 ## Getting Started
 
@@ -20,19 +20,31 @@ You need [Node.js](https://nodejs.org/) installed to run the local development s
    npm install
    ```
 
-   _(This installs the `serve` package locally)_
+2. **Run the development server**
 
-2. **Run the server**
+   ```bash
+   npm run dev
+   ```
+
+   Or equivalently:
 
    ```bash
    npm start
    ```
 
 3. **View the Application**
-   Open your browser and navigate to [http://localhost:8080](http://localhost:8080) to view the dashboard in action.
+   Open your browser and navigate to [http://localhost:5173](http://localhost:5173) to view the dashboard in action.
+
+4. **Run tests**
+
+   ```bash
+   npm test
+   ```
 
 ## Technologies Used
 
 - HTML5 / CSS3 (CSS Variables, Flexbox, Grid)
-- Vanilla JavaScript (ES5/ES6)
+- Vanilla JavaScript (ES Modules)
+- Vite (Development Server & Build Tool)
+- Vitest (Unit & DOM Testing)
 - Simulated AI logic and state management

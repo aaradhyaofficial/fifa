@@ -53,6 +53,42 @@ body {
   padding: 24px;
 }
 
+/* Skip Navigation Link (Accessibility) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  background: var(--accent-cyan);
+  color: var(--bg-dark);
+  padding: 8px 16px;
+  border-radius: 0 0 8px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Focus-visible outlines for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
+.preset-chip:focus-visible,
+.stadium-node:focus-visible,
+.btn:focus-visible,
+.chat-send-btn:focus-visible,
+.console-btn:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.2);
+}
+
 /* App Layout Grid */
 .dashboard-wrapper {
   display: grid;
@@ -1035,6 +1071,53 @@ body {
   border: 1px solid rgba(16, 185, 129, 0.25);
 }
 
+.status-badge.inprogress {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+/* Chat Typing Indicator */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 16px;
+  align-self: flex-start;
+  background: rgba(30, 41, 59, 0.6);
+  border-top-left-radius: 4px;
+  border-radius: 16px;
+  border: 1px solid var(--border-light);
+  max-width: 70px;
+}
+
+.typing-indicator span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  animation: typing-bounce 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing-bounce {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 /* Animations */
 @keyframes pulse-green {
   0% {
@@ -1105,4 +1188,16 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--border-hover);
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

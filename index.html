@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:;"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:; frame-ancestors 'none';"
     />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <title>FIFA World Cup 2026 - Smart Venue &amp; Fan Assist Dashboard</title>
     <meta
       name="description"
@@ -20,7 +21,10 @@
     <link rel="stylesheet" href="styles.css" referrerpolicy="no-referrer" />
   </head>
   <body>
-    <div class="dashboard-wrapper" role="main">
+    <!-- Skip Navigation Link (Accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <main class="dashboard-wrapper" id="main-content">
       <!-- PANEL 1: FAN INTENSITY INTERFACE (WhatsApp Chat Bot Emulator) -->
       <div class="phone-emulator" aria-label="Fan Chat Assistant">
         <div class="phone-notch"></div>
@@ -329,10 +333,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
 
     <!-- Loading scripts -->
-    <script src="stadium_data.js"></script>
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>

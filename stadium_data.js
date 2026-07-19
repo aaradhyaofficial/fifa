@@ -21,7 +21,18 @@ function deepFreeze(obj) {
   return obj;
 }
 
-const INITIAL_SECTIONS = deepFreeze({
+/**
+ * @typedef {Object} SectionData
+ * @property {string} crowd - Crowd density level (e.g., "Low", "Medium", "High", "Critical").
+ * @property {string} status - Operational status description.
+ * @property {string} icon - Emoji icon representing the section type.
+ * @property {boolean} [accessible] - Whether the section is accessible.
+ */
+
+/**
+ * @type {Object.<string, SectionData>}
+ */
+export const INITIAL_SECTIONS = deepFreeze({
   "Sec 101": { crowd: "Medium", status: "Clear", icon: "🎟️" },
   "Sec 102": { crowd: "High", status: "Clear", icon: "🎟️" },
   "Sec 103": { crowd: "Medium", status: "Clear", icon: "🎟️" },
@@ -61,7 +72,19 @@ const INITIAL_SECTIONS = deepFreeze({
   "VIP Lounge": { crowd: "Medium", status: "Clear", icon: "👑" },
 });
 
-const INITIAL_VOLUNTEERS = deepFreeze([
+/**
+ * @typedef {Object} VolunteerData
+ * @property {string} id - Unique volunteer ID.
+ * @property {string} name - Volunteer full name.
+ * @property {string} location - Current zone or section.
+ * @property {string} status - Current operational status ("Available", "Dispatched").
+ * @property {string|null} task - ID of the assigned incident, if any.
+ */
+
+/**
+ * @type {Array<VolunteerData>}
+ */
+export const INITIAL_VOLUNTEERS = deepFreeze([
   {
     id: "VOL-01",
     name: "Sarah Jenkins",
@@ -92,14 +115,26 @@ const INITIAL_VOLUNTEERS = deepFreeze([
   },
 ]);
 
-const STADIUM_MAP_LAYOUT = deepFreeze([
+/**
+ * @type {Array<Array<string>>}
+ */
+export const STADIUM_MAP_LAYOUT = deepFreeze([
   ["Gate 1", "Sec 101", "Restrooms West", "Sec 102", "Concessions West"],
   ["Gate 2", "VIP Lounge", "Field / Pitch", "Media Box", "Gate 3"],
   ["Gate 4", "Sec 108", "Restrooms East", "Sec 106", "Concessions East"],
   ["Sec 107", "Restrooms North", "Sec 105", "Sec 104", "Sec 103"],
 ]);
 
-const PRESET_FAN_MESSAGES = deepFreeze([
+/**
+ * @typedef {Object} PresetFanMessage
+ * @property {string} label - Short label for the preset.
+ * @property {string} text - Full message content.
+ */
+
+/**
+ * @type {Array<PresetFanMessage>}
+ */
+export const PRESET_FAN_MESSAGES = deepFreeze([
   {
     label: "Accessibility Restroom",
     text: "I'm at Section 102 with a stroller. Where is the closest accessible restroom without a huge line?",
@@ -122,7 +157,10 @@ const PRESET_FAN_MESSAGES = deepFreeze([
   },
 ]);
 
-const PRESET_ORGANIZER_QUERIES = deepFreeze([
+/**
+ * @type {Array<string>}
+ */
+export const PRESET_ORGANIZER_QUERIES = deepFreeze([
   "Give me a 2-minute summary of the biggest operational bottlenecks right now.",
   "Check status of Section 102 spill and list closest available volunteers.",
   "What is the status of Gate 3 and what are the recommendations?",
