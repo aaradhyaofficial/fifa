@@ -172,7 +172,7 @@ function markIncidentsDirty() {
 }
 
 // ─── Initialization ───────────────────────────────────────────────
-window.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   try {
     // Set up volunteers assignments initial sync
     syncVolunteerTasks();
